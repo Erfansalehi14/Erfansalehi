@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><title>sheet</title>
+<style>body{margin:0;background:#222;color:#fff;font:12px monospace}div{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px}figure{margin:0}img{width:100%;display:block}figcaption{padding:2px}</style>
+<div id="g"></div><script>
+const files=["hero","hero-alt","hero-alt2","court-1","court-2","court-3","cta","story","gallery-clubhouse","gallery-dusk","gallery-event","gallery-lounge","gallery-players","gallery-racket","gallery-detail"];
+document.getElementById('g').innerHTML=files.map(f=>`<figure><img src="/images/${f}.jpg"><figcaption>${f}</figcaption></figure>`).join('');
+</script>
