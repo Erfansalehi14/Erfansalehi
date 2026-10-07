@@ -432,10 +432,17 @@ button {
 
 /* ---------- Hero ---------- */
 
+/* Scroll track: the video scrubs 0%→100% across this distance */
 .hero {
   position: relative;
+  height: 300vh;
+}
+
+.hero-stage {
+  position: sticky;
+  top: 0;
   height: 100vh;
-  min-height: 700px;
+  height: 100svh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -443,24 +450,13 @@ button {
 
 .hero-media {
   position: absolute;
-  inset: -14% 0 0;
-  will-change: transform;
+  inset: 0;
 }
 
-.hero-media img {
+.hero-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: hero-drift 26s var(--ease) infinite alternate;
-}
-
-@keyframes hero-drift {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.07);
-  }
 }
 
 .hero-overlay {
@@ -588,8 +584,7 @@ button {
   }
 
   .hero {
-    min-height: 620px;
-    height: 94vh;
+    height: 240vh;
   }
 
   .hero-sub {
@@ -622,7 +617,7 @@ button {
     transform: none;
   }
 
-  .hero-media img {
+  .hero-media video {
     animation: none;
   }
 }

@@ -19,3 +19,8 @@ A premium, single-page padel club marketing site built with **Vite 6 + React 18*
 ## Verification
 - `npm run build` inside the web container (`docker compose -f docker-compose.base44.yml exec web npm run build`) is a fast smoke test of the whole bundle.
 - Visual check: load `/`, verify hero, booking slot states (some slots are intentionally unavailable), gallery lightbox (keyboard: Esc/arrows), and mobile hamburger below 1024px.
+
+## Hero video scrub
+- The hero background is a scroll-scrubbed video (`src/components/Hero.jsx` + `src/data/heroVideo.js`): the whole site is Persian/RTL (`dir="rtl"`, Vazirmatn font).
+- Video timeline maps 1:1 to scroll progress across a 300vh sticky track (100svh stage); never autoplays, never loops, paused at all times, driven by a rAF-lerped `currentTime`. `prefers-reduced-motion` shows a static first frame.
+- The video URL is a placeholder Pexels clip; swap `HERO_VIDEO_URL` in `src/data/heroVideo.js` (H.264 MP4, faststart recommended).
