@@ -5,19 +5,19 @@ export default function Footer() {
   return (
     <footer id="contact" className="footer" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="visually-hidden">
-        Contact and site information
+        تماس و اطلاعات سایت
       </h2>
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <a href="#home" className="brand" aria-label="Padel Club — back to top">
+            <a href="#home" className="brand" aria-label="پدل کلاب — بازگشت به بالا">
               <Logo />
             </a>
             <p>{CLUB.tagline}</p>
           </div>
 
           {FOOTER_COLUMNS.map((col) => (
-            <nav className="footer-col" key={col.title} aria-label={`Footer — ${col.title}`}>
+            <nav className="footer-col" key={col.title} aria-label={col.title}>
               <h3>{col.title}</h3>
               <ul>
                 {col.links.map((link) => (
@@ -30,7 +30,7 @@ export default function Footer() {
           ))}
 
           <div className="footer-col">
-            <h3>Contact</h3>
+            <h3>تماس</h3>
             <ul>
               <li>
                 <span>{CLUB.address}</span>
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 Padel Club. All rights reserved.</p>
+          <p>© ۲۰۲۶ پدل کلاب. تمامی حقوق محفوظ است.</p>
           <ul className="footer-legal">
             {LEGAL_LINKS.map((link) => (
               <li key={link.label}>

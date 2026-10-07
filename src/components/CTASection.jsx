@@ -6,19 +6,19 @@ export default function CTASection() {
       <div className="cta-bg" aria-hidden="true" />
       <div className="cta-scrim" aria-hidden="true" />
       <div className="container cta-content" data-reveal>
-        <p className="eyebrow">Membership &amp; Play</p>
+        <p className="eyebrow">عضویت و بازی</p>
         <h2 className="cta-title" id="cta-title">
-          Ready to
+          آماده‌اید
           <br />
-          Elevate Your Game?
+          بازی را به اوج برسانید؟
         </h2>
-        <p className="cta-sub">Book your court and enjoy the ultimate padel experience.</p>
+        <p className="cta-sub">زمین خود را رزرو کنید و از تجربهٔ نهایی پدل لذت ببرید.</p>
         <div className="cta-actions">
           <a className="btn btn-gold" href="#booking">
-            Book a Court <IconArrowRight />
+            رزرو زمین <IconArrowRight />
           </a>
           <a className="btn btn-ghost" href="#membership">
-            Become a Member <IconArrowRight />
+            عضو شوید <IconArrowRight />
           </a>
         </div>
       </div>

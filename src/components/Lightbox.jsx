@@ -23,15 +23,15 @@ export default function Lightbox({ items, index, onClose, onNavigate }) {
   }, [onClose, prev, next]);
 
   return (
-    <div className="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onClick={onClose}>
-      <button type="button" className="lightbox-close" aria-label="Close photo viewer" onClick={onClose} autoFocus>
+    <div className="lightbox" role="dialog" aria-modal="true" aria-label="نمایشگر عکس" onClick={onClose}>
+      <button type="button" className="lightbox-close" aria-label="بستن نمایشگر عکس" onClick={onClose} autoFocus>
         <IconClose />
       </button>
 
       <button
         type="button"
         className="lightbox-nav is-prev"
-        aria-label="Previous photo"
+        aria-label="عکس قبلی"
         onClick={(e) => {
           e.stopPropagation();
           prev();
@@ -53,7 +53,7 @@ export default function Lightbox({ items, index, onClose, onNavigate }) {
       <button
         type="button"
         className="lightbox-nav is-next"
-        aria-label="Next photo"
+        aria-label="عکس بعدی"
         onClick={(e) => {
           e.stopPropagation();
           next();

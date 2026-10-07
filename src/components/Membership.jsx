@@ -6,7 +6,7 @@ export default function Membership() {
   return (
     <section id="membership" className="section membership" aria-labelledby="membership-title">
       <div className="container">
-        <SectionHeader id="membership-title" eyebrow="Membership" title="Your Game. Your Club." center />
+        <SectionHeader id="membership-title" eyebrow="عضویت" title="بازی شما. باشگاه شما." center />
         <div className="member-grid">
           {MEMBERSHIPS.map((plan, i) => (
             <article
@@ -15,11 +15,11 @@ export default function Membership() {
               data-reveal
               style={{ '--reveal-delay': `${i * 100}ms` }}
             >
-              {plan.featured && <span className="member-badge">Recommended</span>}
+              {plan.featured && <span className="member-badge">پیشنهاد ویژه</span>}
               <h3 className="member-name">{plan.name}</h3>
               <p className="member-price">
-                <span>From</span>€{plan.price}
-                <small>/ month</small>
+                <span>از</span>€{plan.price.toLocaleString('fa-IR')}
+                <small>/ ماه</small>
               </p>
               <p className="member-blurb">{plan.blurb}</p>
               <ul className="member-list">
@@ -28,7 +28,7 @@ export default function Membership() {
                 ))}
               </ul>
               <a className={`btn btn-block ${plan.featured ? 'btn-gold' : 'btn-ghost'}`} href="#booking">
-                Become a Member <IconArrowRight />
+                عضو شوید <IconArrowRight />
               </a>
             </article>
           ))}

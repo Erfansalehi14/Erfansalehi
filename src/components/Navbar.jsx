@@ -26,11 +26,11 @@ export default function Navbar() {
     <>
       <header className={`navbar${scrolled ? ' is-scrolled' : ''}`}>
         <div className="container navbar-inner">
-          <a href="#home" className="brand" aria-label="Padel Club — home">
+          <a href="#home" className="brand" aria-label="پدل کلاب — خانه">
             <Logo />
           </a>
 
-          <nav className="nav-center" aria-label="Primary">
+          <nav className="nav-center" aria-label="منوی اصلی">
             <ul>
               {NAV_LINKS.map((link) => (
                 <li key={link.id}>
@@ -44,14 +44,14 @@ export default function Navbar() {
 
           <div className="nav-right">
             <a className="btn btn-outline btn-sm nav-book" href="#booking">
-              Book a Court
+              رزرو زمین
             </a>
             <button
               type="button"
               className="nav-burger"
               aria-expanded={open}
               aria-controls="mobile-menu"
-              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-label={open ? 'بستن منو' : 'باز کردن منو'}
               onClick={() => setOpen((v) => !v)}
             >
               {open ? <IconClose /> : <IconMenu />}
@@ -61,7 +61,7 @@ export default function Navbar() {
       </header>
 
       <div id="mobile-menu" className={`mobile-menu${open ? ' is-open' : ''}`}>
-        <nav aria-label="Mobile">
+        <nav aria-label="منوی موبایل">
           <ul>
             {NAV_LINKS.map((link, i) => (
               <li key={link.id} style={{ '--i': i }}>
@@ -72,7 +72,7 @@ export default function Navbar() {
             ))}
           </ul>
           <a className="btn btn-gold" href="#booking" onClick={() => setOpen(false)}>
-            Book a Court
+            رزرو زمین
           </a>
         </nav>
       </div>

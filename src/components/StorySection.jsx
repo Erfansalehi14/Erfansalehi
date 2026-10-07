@@ -7,23 +7,22 @@ export default function StorySection() {
         <div className="story-media" data-reveal>
           <img
             src="/images/story.jpg"
-            alt="Grand indoor padel court set within an architecturally significant hall"
+            alt="زمین سرپوشیدهٔ باشکوه پدل در سالنی با معماری کم‌نظیر"
             loading="lazy"
           />
         </div>
         <div className="story-content" data-reveal style={{ '--reveal-delay': '120ms' }}>
-          <p className="eyebrow">The Club</p>
+          <p className="eyebrow">باشگاه</p>
           <h2 className="story-title" id="story-title">
-            Where Performance
+            جایی که عملکرد
             <br />
-            Meets Lifestyle
+            به سبک زندگی می‌رسد
           </h2>
           <p className="story-text">
-            More than a place to play, Padel Club is a destination built around performance, connection and
-            exceptional experiences.
+            پدل کلاب بیش از یک مکان برای بازی است؛ مقصدی برای عملکرد، پیوند و تجربه‌های استثنایی.
           </p>
           <a className="btn btn-ghost" href="#gallery">
-            Discover the Club <IconArrowRight />
+            کشف باشگاه <IconArrowRight />
           </a>
         </div>
       </div>

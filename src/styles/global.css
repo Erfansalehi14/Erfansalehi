@@ -16,8 +16,8 @@
   --gold-3: #d1b27a;
   --border: rgba(255, 255, 255, 0.12);
   --border-soft: rgba(255, 255, 255, 0.07);
-  --font-display: 'Anton', 'Arial Narrow', sans-serif;
-  --font-body: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+  --font-display: 'Vazirmatn', 'Anton', 'Arial Narrow', sans-serif;
+  --font-body: 'Vazirmatn', 'Inter', 'Helvetica Neue', system-ui, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --container: 1240px;
   --gutter: clamp(20px, 5vw, 48px);
@@ -95,7 +95,7 @@ button {
 .skip-link {
   position: fixed;
   top: -64px;
-  left: 16px;
+  inset-inline-start: 16px;
   z-index: 300;
   background: var(--gold);
   color: #10141a;
@@ -475,8 +475,8 @@ button {
   position: relative;
   width: 100%;
   max-width: 640px;
-  margin-left: max(var(--gutter), 7vw);
-  margin-right: auto;
+  margin-inline-start: max(var(--gutter), 7vw);
+  margin-inline-end: auto;
 }
 
 .hero-content > * {
@@ -492,7 +492,7 @@ button {
 
 .hero-title {
   animation-delay: 0.28s;
-  font: 400 clamp(54px, 9.6vw, 108px) / 0.98 var(--font-display);
+  font: 800 clamp(54px, 9.6vw, 108px) / 0.98 var(--font-display);
   letter-spacing: 0.015em;
   text-transform: uppercase;
   margin-bottom: 22px;
@@ -522,7 +522,7 @@ button {
 
 .hero-scroll {
   position: absolute;
-  left: var(--gutter);
+  inset-inline-start: var(--gutter);
   bottom: 34px;
   display: inline-flex;
   align-items: center;
@@ -624,5 +624,90 @@ button {
 
   .hero-media img {
     animation: none;
+  }
+}
+
+/* ==================================================================
+   RTL (Persian) — mirrored details + Persian typography corrections
+   ================================================================== */
+
+/* letter-spacing breaks the joined Persian script */
+[dir='rtl'] *:not(.logo-word) {
+  letter-spacing: 0 !important;
+}
+
+/* forward arrows point in reading direction */
+[dir='rtl'] .btn > svg,
+[dir='rtl'] .court-cta > svg {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .btn:hover > svg {
+  transform: scaleX(-1) translateX(-4px);
+}
+
+[dir='rtl'] .court-card:hover .court-cta svg,
+[dir='rtl'] .event-card:hover .court-cta svg {
+  transform: scaleX(-1) translateX(-5px);
+}
+
+/* darken the side the content sits on */
+[dir='rtl'] .hero-overlay {
+  background:
+    linear-gradient(270deg, rgba(5, 8, 12, 0.78) 0%, rgba(5, 8, 12, 0.38) 48%, rgba(5, 8, 12, 0.16) 100%),
+    linear-gradient(180deg, rgba(5, 8, 12, 0.42) 0%, rgba(5, 8, 12, 0.05) 40%, rgba(5, 8, 12, 0.72) 100%);
+}
+
+[dir='rtl'] .cta-scrim {
+  background:
+    linear-gradient(270deg, rgba(5, 8, 12, 0.82) 0%, rgba(5, 8, 12, 0.45) 55%, rgba(5, 8, 12, 0.25) 100%),
+    linear-gradient(180deg, rgba(5, 8, 12, 0.45) 0%, rgba(5, 8, 12, 0.55) 100%);
+}
+
+[dir='rtl'] .bk-row dd {
+  text-align: left;
+}
+
+[dir='rtl'] .showcase-card figcaption {
+  left: auto;
+  right: 18px;
+}
+
+[dir='rtl'] .gallery-item-label {
+  left: auto;
+  right: 16px;
+}
+
+/* mirrored lightbox */
+[dir='rtl'] .lightbox-nav svg {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .lightbox-close {
+  right: auto;
+  left: 26px;
+}
+
+[dir='rtl'] .lightbox-nav.is-prev {
+  left: auto;
+  right: 22px;
+}
+
+[dir='rtl'] .lightbox-nav.is-next {
+  right: auto;
+  left: 22px;
+}
+
+@media (max-width: 640px) {
+  [dir='rtl'] .lightbox-close {
+    left: 12px;
+  }
+
+  [dir='rtl'] .lightbox-nav.is-prev {
+    right: 10px;
+  }
+
+  [dir='rtl'] .lightbox-nav.is-next {
+    left: 10px;
   }
 }

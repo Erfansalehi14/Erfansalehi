@@ -24,30 +24,30 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="hero" aria-label="Padel Club — introduction">
+    <section id="home" className="hero" aria-label="پدل کلاب — معرفی">
       <div className="hero-media" ref={mediaRef}>
         <img
           src="/images/hero.jpg"
-          alt="Illuminated padel courts and clubhouse architecture at night"
+          alt="زمین‌های پدل روشن و معماری خانهٔ باشگاه در شب"
           fetchpriority="high"
         />
         <div className="hero-overlay" aria-hidden="true" />
       </div>
 
       <div className="container hero-content">
-        <p className="eyebrow hero-eyebrow">Premium Padel. Perfect Experience.</p>
+        <p className="eyebrow hero-eyebrow">پدلِ لوکس. تجربه‌ای بی‌نقص.</p>
         <h1 className="hero-title">
-          Play
+          بازی
           <br />
-          Elevated
+          در اوج
         </h1>
-        <p className="hero-sub">Top-tier courts, world-class facilities, and a community that shares your passion.</p>
+        <p className="hero-sub">زمین‌های درجه‌یک، امکاناتی بی‌همتا و جامعه‌ای که اشتیاق شما را سهیم می‌شود.</p>
         <div className="hero-cta">
           <a className="btn btn-gold" href="#booking">
-            Book a Court <IconArrowRight />
+            رزرو زمین <IconArrowRight />
           </a>
           <a className="btn btn-ghost" href="#club">
-            Explore the Club <IconArrowDown />
+            کاوش در باشگاه <IconArrowDown />
           </a>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function Hero() {
         <span className="hero-scroll-circle" aria-hidden="true">
           <IconArrowDown />
         </span>
-        <span className="hero-scroll-label">Scroll to Explore</span>
+        <span className="hero-scroll-label">برای کشف، اسکرول کنید</span>
       </a>
     </section>
   );

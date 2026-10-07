@@ -18,7 +18,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#main">
-        Skip to content
+        پرش به محتوا
       </a>
       <Navbar />
       <main id="main">

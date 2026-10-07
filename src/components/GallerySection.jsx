@@ -4,18 +4,21 @@ import Lightbox from './Lightbox.jsx';
 import { GALLERY_CATS, GALLERY_ITEMS } from '../data/site.js';
 
 export default function GallerySection() {
-  const [cat, setCat] = useState('All');
+  const [cat, setCat] = useState(GALLERY_CATS[0]);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const items = useMemo(
-    () => (cat === 'All' ? GALLERY_ITEMS : GALLERY_ITEMS.filter((g) => g.cat === cat)),
+    () =>
+      cat === GALLERY_CATS[0]
+        ? GALLERY_ITEMS
+        : GALLERY_ITEMS.filter((g) => g.cat === cat),
     [cat]
   );
 
   return (
     <section id="gallery" className="section gallery" aria-labelledby="gallery-title">
       <div className="container">
-        <SectionHeader id="gallery-title" eyebrow="The Gallery" title="Inside the Club" center />
+        <SectionHeader id="gallery-title" eyebrow="گالری" title="درون باشگاه" center />
 
         <div className="gallery-filters" data-reveal>
           {GALLERY_CATS.map((c) => (
@@ -40,7 +43,7 @@ export default function GallerySection() {
               data-reveal
               style={{ '--reveal-delay': `${(i % 4) * 80}ms` }}
               onClick={() => setLightboxIndex(i)}
-              aria-label={`View photo — ${img.alt}`}
+              aria-label={`مشاهدهٔ عکس — ${img.alt}`}
             >
               <img src={img.src} alt={img.alt} loading="lazy" />
               <span className="gallery-item-label" aria-hidden="true">

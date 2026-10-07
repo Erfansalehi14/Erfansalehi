@@ -16,8 +16,8 @@ const todayISO = () => {
 };
 
 const fmtDate = (iso) =>
-  new Date(`${iso}T12:00:00`).toLocaleDateString('en-GB', {
-    weekday: 'short',
+  new Date(`${iso}T12:00:00`).toLocaleDateString('fa-IR-u-ca-gregory', {
+    weekday: 'long',
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -111,28 +111,28 @@ export default function Booking() {
 
   const summaryRows = step === 'review' || confirmed
     ? [
-        ['Date', fmtDate(confirmed ? confirmed.date : date)],
-        ['Court', confirmed ? confirmed.court : court.name],
-        ['Time', confirmed ? confirmed.time : slot],
-        ['Duration', `${confirmed ? confirmed.duration : duration} min`],
-        ['Players', confirmed ? confirmed.players : players],
+        ['تاریخ', fmtDate(confirmed ? confirmed.date : date)],
+        ['زمین', confirmed ? confirmed.court : court.name],
+        ['ساعت', confirmed ? confirmed.time : slot],
+        ['مدت', `${confirmed ? confirmed.duration : duration} دقیقه`],
+        ['بازیکنان', confirmed ? confirmed.players : players],
       ]
     : slot
-      ? [['Date', fmtDate(date)], ['Court', court.name], ['Time', slot], ['Duration', `${duration} min`], ['Players', players]]
+      ? [['تاریخ', fmtDate(date)], ['زمین', court.name], ['ساعت', slot], ['مدت', `${duration} دقیقه`], ['بازیکنان', players]]
       : null;
 
   return (
     <section id="booking" className="section booking" aria-labelledby="booking-title">
       <div className="container">
-        <SectionHeader id="booking-title" eyebrow="Reservations" title="Book Your Court" center />
+        <SectionHeader id="booking-title" eyebrow="رزروها" title="زمین خود را رزرو کنید" center />
 
         {step === 'confirmed' ? (
           <div className="bk-confirmed" role="status" data-reveal>
             <span className="bk-check">
               <IconCheck />
             </span>
-            <h3 className="bk-confirmed-title">Booking Confirmed</h3>
-            <p>Your court has been successfully reserved.</p>
+            <h3 className="bk-confirmed-title">رزرو تأیید شد</h3>
+            <p>زمین شما با موفقیت رزرو شد.</p>
             <p className="bk-ref">{confirmed.ref}</p>
             <dl className="bk-rows">
               {summaryRows.map(([k, v]) => (
@@ -143,55 +143,55 @@ export default function Booking() {
               ))}
             </dl>
             <button type="button" className="btn btn-ghost" onClick={reset}>
-              Book Another Court <IconArrowRight />
+              رزرو زمین دیگر <IconArrowRight />
             </button>
           </div>
         ) : (
           <div className="bk-layout">
             <div className="bk-panel" data-reveal>
               <div className="bk-controls">
-                <Field label="Date">
+                <Field label="تاریخ">
                   <input
                     type="date"
                     min={todayISO()}
                     value={date}
-                    aria-label="Booking date"
+                    aria-label="تاریخ رزرو"
                     onChange={(e) => e.target.value && setDate(e.target.value)}
                   />
                 </Field>
-                <Field label="Court">
+                <Field label="زمین">
                   <SegGroup
-                    label="Court"
+                    label="زمین"
                     options={COURTS.map((c) => ({ value: c.id, label: c.name }))}
                     value={courtId}
                     onChange={setCourtId}
                     render={(o) => o.label}
                   />
                 </Field>
-                <Field label="Duration">
+                <Field label="مدت">
                   <SegGroup
-                    label="Duration"
+                    label="مدت"
                     options={DURATIONS.map((d) => ({ value: d }))}
                     value={duration}
                     onChange={setDuration}
-                    render={(o) => `${o.value} min`}
+                    render={(o) => `${o.value} دقیقه`}
                   />
                 </Field>
-                <Field label="Players">
+                <Field label="بازیکنان">
                   <SegGroup
-                    label="Players"
+                    label="بازیکنان"
                     options={[2, 4].map((n) => ({ value: n }))}
                     value={players}
                     onChange={setPlayers}
-                    render={(o) => `${o.value} players`}
+                    render={(o) => `${o.value} بازیکن`}
                   />
                 </Field>
               </div>
 
               <div className="bk-slots-head">
-                <span className="bk-label">Available Times</span>
+                <span className="bk-label">ساعت‌های آزاد</span>
                 <span className="bk-hint">
-                  {status === 'ready' ? `${available.length} slots open` : status === 'loading' ? 'Checking availability…' : ''}
+                  {status === 'ready' ? `${available.length} زمان آزاد` : status === 'loading' ? 'در حال بررسی ظرفیت…' : ''}
                 </span>
               </div>
 
@@ -207,12 +207,12 @@ export default function Booking() {
 
               {status === 'empty' && (
                 <p className="bk-error" role="status">
-                  No times available for this selection — please try another date or court.
+                  برای این انتخاب زمانی آزاد نیست — تاریخ یا زمین دیگری را امتحان کنید.
                 </p>
               )}
 
               {status === 'ready' && (
-                <div className="bk-slots" role="radiogroup" aria-label="Available times">
+                <div className="bk-slots" role="radiogroup" aria-label="ساعت‌های آزاد">
                   {TIME_SLOTS.map((t) => {
                     const open = available.includes(t);
                     return (
@@ -234,7 +234,7 @@ export default function Booking() {
             </div>
 
             <aside className="bk-summary" data-reveal style={{ '--reveal-delay': '120ms' }}>
-              <span className="bk-label">Your Booking</span>
+              <span className="bk-label">رزرو شما</span>
               {summaryRows ? (
                 <dl className="bk-rows">
                   {summaryRows.map(([k, v]) => (
@@ -245,20 +245,20 @@ export default function Booking() {
                   ))}
                 </dl>
               ) : (
-                <p className="bk-empty">Choose a date, court and time to see your booking here.</p>
+                <p className="bk-empty">برای دیدن رزرو خود، تاریخ، زمین و ساعت را انتخاب کنید.</p>
               )}
               {step === 'review' ? (
                 <div className="bk-actions">
                   <button type="button" className="btn btn-gold btn-block" onClick={confirm}>
-                    Confirm Booking <IconCheck />
+                    تأیید رزرو <IconCheck />
                   </button>
                   <button type="button" className="btn btn-ghost btn-block" onClick={() => setStep('select')}>
-                    Back
+                    بازگشت
                   </button>
                 </div>
               ) : (
                 <button type="button" className="btn btn-gold btn-block" disabled={!slot} onClick={() => setStep('review')}>
-                  Continue to Book <IconArrowRight />
+                  ادامه و رزرو <IconArrowRight />
                 </button>
               )}
             </aside>
@@ -268,5 +268,3 @@ export default function Booking() {
     </section>
   );
 }
-
-
